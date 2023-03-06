@@ -1,0 +1,22 @@
+{% extends 'chat/base.html' %}
+
+{% block title %}{{slug}} Deleting Users{% endblock %}
+
+{% block content %}
+<div class="p-10 lg:p-20 text-center">
+    <h1 class="text-3xl lg:text-6xl text-white">Delete users from {{slug}}</h1>
+</div>
+
+<form method="post" action="" class="lg:w-1/4 px-4 mx-auto">
+    {% csrf_token %}
+    <div class="p-10 lg:p-20 text-center">
+        {% for obj in grp_members %}
+            <h4 class="text-3xl text-white"><input type="Checkbox" name="userid" value="{{obj.id}}">{{obj.user}}</h4>
+        {% endfor %}
+    
+        <button class="px-5 py-3 rounded-xl text-white bg-teal-800 hover:bg-tale-700">Delete Users</button>
+    </div>
+
+</form>
+
+{% endblock %}
